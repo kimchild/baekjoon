@@ -1,4 +1,4 @@
-package common.math;
+package normal.math;
 
 import static org.assertj.core.api.Assertions.*;
 import org.junit.jupiter.api.Test;
