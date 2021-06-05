@@ -1,25 +1,20 @@
-import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) {
 		//input
 		Scanner scanner = new Scanner(System.in);
 
-		String[] splitScanner = scanner.nextLine().split(" ");
-		int fixMoney = Integer.parseInt(splitScanner[0]);
-		int createPrice = Integer.parseInt(splitScanner[1]);
-		int salePrice = Integer.parseInt(splitScanner[2]);
+		final int findTarget = scanner.nextInt();
 
 		//logic
-		int answer = 0;
-		if(createPrice >= salePrice) {
-			answer = -1;
-		} else {
-			while (fixMoney >= 0) {
-				fixMoney -= (salePrice - createPrice);
-				answer++;
-			}
+		int answer = 1;
+		final int addedRow = 6;
+		int anchor = 1;
+
+		while (findTarget != 1 && anchor <= findTarget) {
+			anchor += (addedRow * answer);
+			answer++;
 		}
 
 		//output
