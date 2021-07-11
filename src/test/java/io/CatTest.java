@@ -9,6 +9,6 @@ public class CatTest {
 						+ " )  ( ')\n"
 						+ "(  /  )\n"
 						+ " \\(__)|";
-		assert true
+		assert true;
 	}
 }
