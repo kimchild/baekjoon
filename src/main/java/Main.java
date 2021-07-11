@@ -6,21 +6,21 @@ import java.util.Scanner;
 public class Main {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
-		List<String> minus = getMinusArray(scanner.nextLine());
-		int answer = getMinusNumber(minus);
+		List<String> multiple = getMultipleArray(scanner.nextLine());
+		int answer = getMultipleNumber(multiple);
 		System.out.println(answer);
 		System.exit(0);
 	}
 
-	private static int getMinusNumber(List<String> minus) {
-		int result = Integer.parseInt(minus.get(0));
-		for (String s : minus.subList(1, minus.size())) {
-			result -= Integer.parseInt(s);
+	private static int getMultipleNumber(List<String> multiple) {
+		int result = Integer.parseInt(multiple.get(0));
+		for (String s : multiple.subList(1, multiple.size())) {
+			result *= Integer.parseInt(s);
 		}
 		return result;
 	}
 
-	private static List<String> getMinusArray(String strMinus) {
-		return new ArrayList<>(Arrays.asList(strMinus.split(" ")));
+	private static List<String> getMultipleArray(String strMultiple) {
+		return new ArrayList<>(Arrays.asList(strMultiple.split(" ")));
 	}
 }
