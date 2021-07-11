@@ -1,29 +1,30 @@
-import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
-	public static void main(String[] args) throws IOException {
-		//input
+	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
-
-		String[] splitScanner = scanner.nextLine().split(" ");
-		int fixMoney = Integer.parseInt(splitScanner[0]);
-		int createPrice = Integer.parseInt(splitScanner[1]);
-		int salePrice = Integer.parseInt(splitScanner[2]);
-
-		//logic
-		int answer = 0;
-		if(createPrice >= salePrice) {
-			answer = -1;
-		} else {
-			while (fixMoney >= 0) {
-				fixMoney -= (salePrice - createPrice);
-				answer++;
-			}
-		}
-
-		//output
+		int[] sum = getSumArray(scanner.nextLine());
+		int answer = getSumNumber(sum);
 		System.out.println(answer);
 		System.exit(0);
+	}
+
+	private static int getSumNumber(int[] sum) {
+		int result = 0;
+		for (int i : sum) {
+			result += i;
+		}
+		return result;
+	}
+
+	private static int[] getSumArray(String strSum) {
+		int length = strSum.split(" ").length;
+		int[] result = new int[length];
+		int i = 0;
+		for (String s : strSum.split(" ")) {
+			result[i++] = Integer.parseInt(s);
+		}
+
+		return result;
 	}
 }
