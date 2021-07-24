@@ -1,66 +1,38 @@
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Main {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
-		List<String> numbers = getArray(scanner.nextLine());
-		int answer = getSumNumber(numbers);
+		int target = Integer.parseInt(scanner.nextLine());
+		List<Integer> numbers = getArray(scanner.nextLine());
+
+		int a = numbers.get(0);
+		int b = numbers.get(1);
+		int c = numbers.get(2);
+
+		int answer = target * c;
 		System.out.println(answer);
 
-		answer = getMinusNumber(numbers);
+		answer = target * b;
 		System.out.println(answer);
 
-		answer = getMultipleNumber(numbers);
+		answer = target * a;
 		System.out.println(answer);
 
-		answer = getDividedNumber(numbers);
+		answer = (target * (a * 100)) + (target * (b * 10)) + (target * c);
 		System.out.println(answer);
 
-		answer = getRestNumber(numbers);
-		System.out.println(answer);
 		System.exit(0);
 	}
 
-	private static List<String> getArray(String strMinus) {
-		return new ArrayList<>(Arrays.asList(strMinus.split(" ")));
+	private static List<Integer> getArray(String strMinus) {
+		List<Integer> list = new LinkedList<>();
+		list.add(Integer.valueOf(strMinus.substring(0, 1)));
+		list.add(Integer.valueOf(strMinus.substring(1, 2)));
+		list.add(Integer.valueOf(strMinus.substring(2, 3)));
+		return list;
 	}
 
-	private static int getSumNumber(List<String> minus) {
-		int result = Integer.parseInt(minus.get(0));
-		for (String s : minus.subList(1, minus.size())) {
-			result += Integer.parseInt(s);
-		}
-		return result;
-	}
-
-	private static int getMinusNumber(List<String> minus) {
-		int result = Integer.parseInt(minus.get(0));
-		for (String s : minus.subList(1, minus.size())) {
-			result -= Integer.parseInt(s);
-		}
-		return result;
-	}
-
-	private static int getMultipleNumber(List<String> minus) {
-		int result = Integer.parseInt(minus.get(0));
-		for (String s : minus.subList(1, minus.size())) {
-			result *= Integer.parseInt(s);
-		}
-		return result;
-	}
-
-	private static int getDividedNumber(List<String> divided) {
-		int result = Integer.parseInt(divided.get(0));
-		for (String s : divided.subList(1, divided.size())) {
-			result /= Integer.parseInt(s);
-		}
-		return result;
-	}
-
-	private static int getRestNumber(List<String> divided) {
-		return Integer.parseInt(divided.get(0)) % Integer.parseInt(divided.get(1));
-	}
 }
