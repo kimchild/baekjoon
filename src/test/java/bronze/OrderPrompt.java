@@ -13,28 +13,29 @@ public class OrderPrompt {
 	@Test
 	public void 명령_프롬프트() {
 
-		String[] arr = {"3"
-						, "config.sys"
-						, "config.inf"
-						, "configures"};
+		// String[] arr = {"0"};
+		// String[] arr = {"3"
+		// 				, "config.sys"
+		// 				, "config.inf"
+		// 				, "configures"};
 
-		// String[] dataArr = {"2"
+		// String[] arr = {"2"
 		// 				, "contest.txt"
 		// 				, "context.txt"};
 
-		// String[] dataArr = {"3"
+		// String[] arr = {"3"
 		// 	, "c.user.mike.programs"
 		// 	, "c.user.nike.programs"
 		// 	, "c.user.rice.programs"};
 
-		// String[] dataArr = {"4"
+		// String[] arr = {"4"
 		// 	, "a"
 		// 	, "a"
 		// 	, "b"
 		// 	, "b"};
 
-		// String[] dataArr = {"1"
-		// 	, "onlyonefile"};
+		String[] arr = {"1"
+			, "onlyonefile"};
 
 		int len = Integer.parseInt(arr[0]);
 
@@ -44,7 +45,10 @@ public class OrderPrompt {
 		// Collections.sort(dataArr, Comparator.comparingInt(String::length));
 
 		StringBuilder sb = new StringBuilder();
-		String findStr = dataArr.get(1);
+		if (dataArr.size() < 1) {
+			return;
+		}
+		String findStr = dataArr.get(0);
 		boolean isFind = false;
 		for (int i = 0; i < findStr.length(); i++) {
 

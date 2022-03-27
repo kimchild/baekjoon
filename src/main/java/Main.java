@@ -13,7 +13,10 @@ public class Main {
 		}
 
 		StringBuilder sb = new StringBuilder();
-		String findStr = dataArr.get(1);
+		if (dataArr.size() < 1) {
+			return;
+		}
+		String findStr = dataArr.get(0);
 		boolean isFind = false;
 		for (int i = 0; i < findStr.length(); i++) {
 
