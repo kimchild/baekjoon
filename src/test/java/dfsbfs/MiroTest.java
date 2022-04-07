@@ -1,26 +1,12 @@
 package dfsbfs;
 
-import java.util.Deque;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.Queue;
 import java.util.Stack;
 
 import org.junit.jupiter.api.Test;
 
 public class MiroTest {
 
-	static int result = 1;
 	static Stack<String> stack = new Stack<>();
-
-	private boolean isGoal(int i, int j, int x, int y) {
-		return i == x && j == y;
-	}
-
-	private boolean isWorking(int jx, int iy, int[][] miro) {
-		return (miro[jx][iy] == 1);
-	}
 
 	class Position {
 		int x;
@@ -106,10 +92,7 @@ public class MiroTest {
 		if (directionX >= miro[0].length || directionY >= miro.length) {
 			return false;
 		}
- 		if (directionX == -1 || directionY == -1 || miro[directionY][directionX] != 1) {
-			return false;
-		}
-		return true;
+		return directionX != -1 && directionY != -1 && miro[directionY][directionX] == 1;
 	}
 
 	private static boolean isFinish(int[][] miro, Position position) {
@@ -124,7 +107,7 @@ public class MiroTest {
 		int y = Integer.parseInt(strFindTarget.split(" ")[1]);
 
 		int result;
-		/**/
+		/*/
 		int[][] miro = {
 			  {1, 0, 1, 1, 1, 1}
 			, {1, 0, 1, 0, 1, 0}
@@ -141,6 +124,25 @@ public class MiroTest {
 			, {1, 1, 1, 1, 0, 1}
 		};
 		int answer = 9;
+		/**/
+		/**/
+		int[][] miro = {
+			  {1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1 ,1, 0, 1, 1, 1}
+			, {1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0 ,1, 1, 1, 0, 1}
+		};
+		int answer = 38;
+		/**/
+		/*/
+		int[][] miro = {
+			  {1, 0, 1, 1, 1, 1, 1}
+			, {1, 1, 1, 0, 0, 0, 1}
+			, {1, 0, 0, 0, 0, 0, 1}
+			, {1, 0, 0, 0, 0, 0, 1}
+			, {1, 0, 0, 0, 0, 0, 1}
+			, {1, 0, 0, 0, 0, 0, 1}
+			, {1, 1, 1, 1, 1, 1, 1}
+		};
+		int answer = 13;
 		/**/
 
 		Position position = new Position(0, 0, miro);
